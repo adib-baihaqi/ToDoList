@@ -17,14 +17,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-// Route::get('/',function(){
-//     return view('layouts.app');
-// })->name('HomePage');
+ Route::get('/',function(){
+     return view('index');
+ });
 
 Route::get('/','App\Http\Controllers\TaskController@index');
 
-Route::get('/',function(){
+Route::get('/create',function(){
     return view('list');
 });
 
 Route::post('/','App\Http\Controllers\TaskController@store');
+
+Route::patch('/{id}', 'App\Http\Controllers\TaskController@update');

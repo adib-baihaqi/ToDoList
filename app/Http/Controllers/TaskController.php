@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
     public function index(){
-        return view('layouts.app');
+        $tasks = Task::orderBy('id','DESC')
+        ->get();
+
+        return view('index',[
+            'tasks'=>$tasks,    
+        ]);
     }
 
     public function create(){
@@ -15,6 +21,18 @@ class TaskController extends Controller
     }
 
     public function store(){
-        return 'your data was submitted';
+        Task::create([
+            'description' =>request('description',)
+        ]);
+        return redirect('/');
+    }
+
+    public function update($id){
+        $task = Task::where('id',$id)->first();
+
+        $task->completed_at = now();
+        $task->save();
+
+        return redirect('/');
     }
 }
