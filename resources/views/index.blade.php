@@ -15,6 +15,12 @@
                     @csrf
                     @if(!$task->isCompleted())
                         <button class="btn btn-light btn-block" input="submit">Complete</button>
+                    @else
+                        <form action="/{{$task->id}}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn btn-danger btn-block" input="submit">Remove</button>
+                        </form>
                     @endif
                 </form>
             </div>
