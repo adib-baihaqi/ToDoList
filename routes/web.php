@@ -30,3 +30,5 @@ Route::get('/create',function(){
 Route::post('/','App\Http\Controllers\TaskController@store');
 
 Route::patch('/{id}', 'App\Http\Controllers\TaskController@update');
+
+Route::delete('/{id}', 'App\Http\Controllers\TaskController@delete');

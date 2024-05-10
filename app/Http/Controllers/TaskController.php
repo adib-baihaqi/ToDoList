@@ -35,4 +35,11 @@ class TaskController extends Controller
 
         return redirect('/');
     }
+
+    public function delete($id){
+        $task = Task::where('id',$id)->first();
+        $task->delete();
+        
+        return redirect('/');
+    }
 }
