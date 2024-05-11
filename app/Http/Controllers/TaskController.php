@@ -42,4 +42,13 @@ class TaskController extends Controller
         
         return redirect('/');
     }
+
+    public function history(){
+        $completedTasks = Task::whereNotNull('completed_at')->orderBy('id','DESC')->get();
+    
+        return view('history',[
+            'tasks' => $completedTasks,    
+        ]);
+    }
+    
 }

@@ -32,3 +32,5 @@ Route::post('/','App\Http\Controllers\TaskController@store');
 Route::patch('/{id}', 'App\Http\Controllers\TaskController@update');
 
 Route::delete('/{id}', 'App\Http\Controllers\TaskController@delete');
+
+Route::get('/history', 'App\Http\Controllers\TaskController@history');
