@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,3 +35,7 @@ Route::patch('/{id}', 'App\Http\Controllers\TaskController@update');
 Route::delete('/{id}', 'App\Http\Controllers\TaskController@delete');
 
 Route::get('/history', 'App\Http\Controllers\TaskController@history');
+
+
+//User Route
+Route::get('/user/list', [UserController::class, 'index'])->name('userlist');
