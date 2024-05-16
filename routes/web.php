@@ -28,6 +28,10 @@ Route::get('/create',function(){
     return view('list');
 });
 
+Route::get('/login',function(){
+    return view('login');
+});
+
 Route::post('/','App\Http\Controllers\TaskController@store');
 
 Route::patch('/{id}', 'App\Http\Controllers\TaskController@update');
